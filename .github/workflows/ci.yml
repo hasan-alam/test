@@ -24,6 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
   dockerize:
     needs: build
+    runs-on: ubuntu-latest
     steps:
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v4
