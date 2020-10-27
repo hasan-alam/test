@@ -26,6 +26,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
