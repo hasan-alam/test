@@ -20,11 +20,16 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: mvn install
-      - name: Upload output file
+      - name: Upload output jar file
         uses: actions/upload-artifact@v1
         with:
           name: demo
           path: target/demo-0.0.1-SNAPSHOT.jar
+      - name: Upload docker file
+        uses: actions/upload-artifact@v1
+        with:
+          name: Dockerfile
+          path: Dockerfile    
   dockerize:
     needs: build
     runs-on: ubuntu-latest
@@ -33,6 +38,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: demo
+      - name: Download Dockerfile
+        uses: actions/download-artifact@v2
+        with:
+          name: Dockerfile    
       - name: Build and push docker image
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
