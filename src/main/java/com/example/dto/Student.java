@@ -15,6 +15,8 @@ public class Student {
 	private String standard;
 	@Value("10-03-83")
 	private String dob;
+	@Value("Islam")
+	private String religion;
 	public String getId() {
 		return id;
 	}
@@ -45,5 +47,12 @@ public class Student {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+	public String getReligion() {
+		return religion;
+	}
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+	
 	
 }
