@@ -32,11 +32,5 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-  
-  printinfo:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print Hello Continously
-      run: |
-          for i in {1..500}; do echo "Hello#$i"; done
+
 
