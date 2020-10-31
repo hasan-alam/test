@@ -13,6 +13,6 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
-  - docker build -t hasanalam/myrepo:$RELEASE_NO .
+  - docker build -t hasanalam/myrepo:v$RELEASE_NO .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker push hasanalam/myrepo:$RELEASE_NO
+  - docker push hasanalam/myrepo:v$RELEASE_NO
