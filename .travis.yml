@@ -12,6 +12,7 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
+  - echo "Build number:$TRAVIS_BUILD_NUMBER"
   - docker build -t hasanalam/myrepo:$TRAVIS_BUILD_NUMBER .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push hasanalam/myrepo:$TRAVIS_BUILD_NUMBER
