@@ -3,8 +3,7 @@ jdk:
   - openjdk8
 services:
   - docker
-env:
-  - TRAVIS_TAG = "TCI$(date +'%Y%m%d%H%M%S')"
+
 #For caching the mvn repo
 cache:
   directories:
@@ -13,7 +12,8 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
-  - echo "============Travis Tag#$TRAVIS_TAG"
-  - docker build -t hasanalam/myrepo:$TRAVIS_TAG .
+  - $RELEASE_NO = "TCI$(date +'%Y%m%d%H%M%S')"
+  - echo "============Travis Tag#$RELEASE_NO"
+  - docker build -t hasanalam/myrepo:$RELEASE_NO .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker push hasanalam/myrepo:$TRAVIS_TAG
+  - docker push hasanalam/myrepo:$RELEASE_NO
