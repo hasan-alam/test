@@ -12,8 +12,6 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
-  - $RELEASE_NO = "TCI$(date +'%Y%m%d%H%M%S')"
-  - echo "============Travis Tag#$RELEASE_NO"
-  - docker build -t hasanalam/myrepo:$RELEASE_NO .
+  - docker build -t hasanalam/myrepo:$TRAVIS_BUILD_NUMBER .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker push hasanalam/myrepo:$RELEASE_NO
+  - docker push hasanalam/myrepo:$TRAVIS_BUILD_NUMBER
