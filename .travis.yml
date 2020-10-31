@@ -11,7 +11,7 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
-  - $TAG = TCI$(date +'%Y%m%d%H%M%S')
+  - TAG = TCI$(date +'%Y%m%d%H%M%S')
   - docker build -t hasanalam/myrepo:$TAG .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push hasanalam/myrepo:$TAG
