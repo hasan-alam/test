@@ -2,7 +2,7 @@ language: java
 jdk:
   - openjdk8
 env:
-  - RELEASE_NO = $RELEASE_NO+1
+  - $RELEASE_NO = $RELEASE_NO+1
 services:
   - docker
 #For caching the mvn repo
@@ -13,6 +13,7 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
+  - echo "Release number:v$RELEASE_NO"
   - docker build -t hasanalam/myrepo:v$RELEASE_NO .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push hasanalam/myrepo:v$RELEASE_NO
