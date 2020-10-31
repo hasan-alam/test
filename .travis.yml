@@ -10,7 +10,7 @@ cache:
   - $HOME/.m2
 #mvn build
 script: ./mvnw clean install
-after_script: docker build --tag hasanalam/myrepo:1.0
+after_script: docker build --tag hasanalam/myrepo:1.0 .
 dockerpush:
   script: docker push "hasanalam/myrepo:latest" && docker push "hasanalam/myrepo:1.0"
 notifications:
