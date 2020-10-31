@@ -4,7 +4,7 @@ jdk:
 services:
   - docker
 env:
-  - TRAVIS_TAG=TCI${date +'%Y%m%d%H%M%S'}
+  - TRAVIS_TAG = LATESTV
 #For caching the mvn repo
 cache:
   directories:
@@ -13,6 +13,7 @@ cache:
 #mvn build
 script: 
   - ./mvnw clean install
+  - $TRAVIS_TAG=TCI${date +'%Y%m%d%H%M%S'}
   - echo "============Travis Tag#$TRAVIS_TAG"
   - docker build -t hasanalam/myrepo:$TRAVIS_TAG .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
