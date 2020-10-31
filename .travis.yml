@@ -9,7 +9,9 @@ cache:
   - .autoconf
   - $HOME/.m2
 #mvn build
-script: ./mvnw clean install
+script: 
+	- ./mvnw clean install
+	- docker build --tag demo:1.0
 
 notifications:
   email: hasan.bin.alam.tanim@gmail.com
