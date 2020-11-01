@@ -61,6 +61,4 @@ public class Student {
 	public void setMedium(String medium) {
 		this.medium = medium;
 	}
-	
-	
 }
