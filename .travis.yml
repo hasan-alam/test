@@ -1,15 +1,24 @@
 language: java
+
 jdk:
   - openjdk8
+
 services:
   - docker
 
 #For caching the mvn repo
 cache:
   directories:
-  - .autoconf
   - $HOME/.m2
 #mvn build
+before-install:
+  - echo "This is before install"
+after-install:
+  - echo "This is after install"
+before-script:
+  - echo "This is before script"
+after-script:
+  - echo "This is after script"
 script: 
   - ./mvnw clean install
   - echo "Build number:$TRAVIS_BUILD_NUMBER"
