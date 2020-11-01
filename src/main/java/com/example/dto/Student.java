@@ -17,6 +17,8 @@ public class Student {
 	private String dob;
 	@Value("Islam")
 	private String religion;
+	@Value("Bangla")
+	private String medium;
 	public String getId() {
 		return id;
 	}
@@ -52,6 +54,12 @@ public class Student {
 	}
 	public void setReligion(String religion) {
 		this.religion = religion;
+	}
+	public String getMedium() {
+		return medium;
+	}
+	public void setMedium(String medium) {
+		this.medium = medium;
 	}
 	
 	
