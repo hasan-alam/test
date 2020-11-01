@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [1.7, 1.8]
