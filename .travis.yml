@@ -10,11 +10,7 @@ services:
 cache:
   directories:
   - $HOME/.m2
-#mvn build
-before-install:
-  - echo "This is before install"
-after-install:
-  - echo "This is after install"
+
 before-script:
   - echo "This is before script"
 after-script:
