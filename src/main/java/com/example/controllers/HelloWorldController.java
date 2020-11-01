@@ -13,7 +13,11 @@ public class HelloWorldController {
 	@Autowired
 	Student std;
 	@GetMapping("/hello")
-	public Student hello() {
+	public String hello() {
+		return "Hello World";
+	}
+	@GetMapping("/student")
+	public Student student() {
 		return std;
 	}
 }
